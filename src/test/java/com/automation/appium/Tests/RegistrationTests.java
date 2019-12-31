@@ -20,15 +20,13 @@ public class RegistrationTests {
     @Test
     public void registerTest() {
         RegistrationScreen registrationScreen = new RegistrationScreen();
-
 //        swipe((AndroidDriver) getDriver(), DirectionEnum.UP);
-//        swipe((AndroidDriver) getDriver(), DirectionEnum.RIGHT);
 //        rotateDeviceScreenToLandscape();
         swipeAndClickToElement(registrationScreen.contactName);
 
     }
 
-    @AfterClass
+//    @AfterClass
     public void afterClass() {
         tearDown();
     }

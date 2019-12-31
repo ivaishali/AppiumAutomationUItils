@@ -13,6 +13,6 @@ public class RegistrationScreen {
         PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);
     }
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@content-desc='Asifa']")
+    @AndroidFindBy(accessibility = "Ravina")
     public AndroidElement contactName;
 }

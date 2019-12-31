@@ -75,9 +75,18 @@ public class AppiumSwipeUtils {
         ((Rotatable) driver).rotate(ScreenOrientation.LANDSCAPE);
     }
 
-    public  static void swipeAndClickToElement(AndroidElement element) {
-        while (!element.isDisplayed()) {
-            swipe((AndroidDriver) getDriver(), DirectionEnum.UP);
+    public static void swipeAndClickToElement(AndroidElement element, int... noOfSwipe) {
+        int swipeCount = noOfSwipe.length > 0 ? noOfSwipe[0] : 10;
+        while (swipeCount > 0) {
+            try {
+                if (element.isDisplayed()) {
+                    break;
+                }
+            } catch (Exception e) {
+                swipe((AndroidDriver) getDriver(), DirectionEnum.UP);
+            }
+            swipeCount--;
         }
+        element.click();
     }
 }
