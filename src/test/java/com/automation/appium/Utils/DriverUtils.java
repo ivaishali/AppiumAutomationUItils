@@ -22,6 +22,7 @@ public class DriverUtils {
         caps.setCapability(MobileCapabilityType.PLATFORM_NAME, getPropertyByKey("platform.name"));
         caps.setCapability(MobileCapabilityType.DEVICE_NAME, getPropertyByKey("device.name"));
         caps.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 20);
+        caps.setCapability("noReset", true);
         caps.setCapability("autoGrantPermissions", true);
 //        caps.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + getPropertyByKey("application.path"));\
         caps.setCapability("appPackage", getPropertyByKey("app.package"));
@@ -38,7 +39,7 @@ public class DriverUtils {
         driver.quit();
     }
 
-    public static AppiumDriver getDriver() {
+    public static AndroidDriver getDriver() {
         if (driver == null) {
             initDriver();
         }
