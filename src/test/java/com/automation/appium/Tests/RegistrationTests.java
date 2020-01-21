@@ -1,6 +1,7 @@
 package com.automation.appium.Tests;
 
 import com.automation.appium.Data.DirectionEnum;
+import com.automation.appium.Screen.ContactScreen;
 import com.automation.appium.Screen.RegistrationScreen;
 import com.automation.appium.Utils.ApplicationUtils;
 import com.automation.appium.Utils.PropertyUtils;
@@ -21,22 +22,30 @@ public class RegistrationTests {
         initDriver();
     }
 
-    @Test
+    @Test(enabled = false)
     public void registerTest() {
         RegistrationScreen registrationScreen = new RegistrationScreen();
-//        swipe((AndroidDriver) getDriver(), DirectionEnum.UP);
-//        rotateDeviceScreenToLandscape();
-//        swipeAndClickToElement(registrationScreen.contactName);
-//        pressHomeKey();
-//        backToCurrentApplication();
-//        backGroundApplicationFor(5);
-//        backToCurrentApplication();
-//        startOtherApplication(getPropertyByKey("support.application.appPackage"), getPropertyByKey("support.application.appActivity"));
+        swipe((AndroidDriver) getDriver(), DirectionEnum.UP);
+        rotateDeviceScreenToLandscape();
+        swipeAndClickToElement(registrationScreen.contactName);
+        pressHomeKey();
+        backToCurrentApplication();
+        backGroundApplicationFor(5);
+        backToCurrentApplication();
+        startOtherApplication(getPropertyByKey("support.application.appPackage"), getPropertyByKey("support.application.appActivity"));
         swipeByScriptUp();
 
     }
 
-//    @AfterClass
+    @Test
+    public void testCreateContact() {
+        ContactScreen contactScreen = new ContactScreen();
+        contactScreen.createContact();
+        System.out.println(getDriver().getPageSource());
+//        contactScreen.deleteContact();
+    }
+
+    @AfterClass
     public void afterClass() {
         tearDown();
     }
