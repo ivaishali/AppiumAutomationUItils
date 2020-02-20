@@ -25,8 +25,9 @@ public class DriverUtils {
         caps.setCapability("noReset", true);
         caps.setCapability("autoGrantPermissions", true);
 //        caps.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + getPropertyByKey("application.path"));\
-        caps.setCapability("appPackage", getPropertyByKey("app.package"));
-        caps.setCapability("appActivity", getPropertyByKey("app.activity"));
+//        caps.setCapability("appPackage", getPropertyByKey("app.package"));
+//        caps.setCapability("appActivity", getPropertyByKey("app.activity"));
+        caps.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
         try {
             URL remoteUrl = new URL("http://127.0.0.1:4723/wd/hub");
             driver = new AndroidDriver<>(remoteUrl, caps);
@@ -48,6 +49,7 @@ public class DriverUtils {
 
     public static void main(String[] args) {
         initDriver();
+        getDriver().get("https://www.github.com");
     }
 
 }
