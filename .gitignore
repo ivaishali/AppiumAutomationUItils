@@ -4,3 +4,4 @@ allure-results/c9a638af-80f6-45cb-9f4c-15abb4f11416-container.json
 allure-results/*
 allure-report/*
 *.iml
+.idea/
